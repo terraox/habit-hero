@@ -1,0 +1,14 @@
+# Node
+node_modules/
+dist/
+build/
+.vscode/
+.env.local
+.env.*.local
+
+# Java
+target/
+*.jar
+
+# Backend service account path
+backend/config/firebase-service-account.json

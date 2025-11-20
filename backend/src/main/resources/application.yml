@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+firebase:
+  project-id: ${FIREBASE_PROJECT_ID}
+  service-account-path: ${FIREBASE_SERVICE_ACCOUNT_PATH}

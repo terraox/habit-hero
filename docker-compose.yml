@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: habithero
+      POSTGRES_USER: habithero
+      POSTGRES_PASSWORD: shipdock123
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/habithero
+      SPRING_DATASOURCE_USERNAME: habithero
+      SPRING_DATASOURCE_PASSWORD: shipdock123
+      FIREBASE_SERVICE_ACCOUNT_PATH: /app/firebase-service-account.json
+    depends_on:
+      - db
+      - mailhog
+
+  web-admin:
+    build:
+      context: ./web-admin
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  dbdata:

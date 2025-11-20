@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Habit Hero",
+    "slug": "habit-hero",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo.svg",
+    "android": {"package": "com.habithero.app"},
+    "plugins": [
+      ["expo-notifications"]
+    ]
+  }
+}

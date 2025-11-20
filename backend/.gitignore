@@ -1,0 +1,7 @@
+# env/secrets
+.env
+firebase-service-account.json
+
+# build outputs
+/target
+*.log
